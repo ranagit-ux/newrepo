@@ -31,10 +31,6 @@ stages:
         - task: TerraformTaskV4@4
           inputs:
             provider: 'azurerm'
-            command: 'init'
+            command: 'apply'
             workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-            backendServiceArm: 'autopool'
-            backendAzureRmResourceGroupName: 'forpipeline'
-            backendAzureRmStorageAccountName: 'mypipelinestorage'
-            backendAzureRmContainerName: 'pipelinecontainer'
-            backendAzureRmKey: 'terraform.tfstate'
+            environmentServiceNameAzureRM: 'autopool'
