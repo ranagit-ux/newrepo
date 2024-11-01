@@ -1,6 +1,6 @@
 name: pipelinewithkhansh
 schedules:
-  - cron: '10 23 1 11 5'               # Runs daily at midnight UTC
+  - cron: '13 23 1 11 5'               # Runs daily at midnight UTC
     displayName: 'Daily Midnight Build'
     branches:
       include:
