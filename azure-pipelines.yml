@@ -22,3 +22,19 @@ stages:
             backendAzureRmStorageAccountName: 'mypipelinestorage'
             backendAzureRmContainerName: 'pipelinecontainer'
             backendAzureRmKey: 'terraform.tfstate'
+        - task: TerraformTaskV4@4
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+            environmentServiceNameAzureRM: 'autopool'
+        - task: TerraformTaskV4@4
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+            backendServiceArm: 'autopool'
+            backendAzureRmResourceGroupName: 'forpipeline'
+            backendAzureRmStorageAccountName: 'mypipelinestorage'
+            backendAzureRmContainerName: 'pipelinecontainer'
+            backendAzureRmKey: 'terraform.tfstate'
