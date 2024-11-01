@@ -1,8 +1,11 @@
-name: pipelinewithkhanshab
-trigger:
- branches:
-  include:
-    - main
+name: pipelinewithkhansh
+schedules:
+  - cron: '45 22 1 11 5'               # Runs daily at midnight UTC
+    displayName: 'Daily Midnight Build'
+    branches:
+      include:
+        - main                      # Trigger only for 'main' branch
+    always: true 
 pool: autopool
 stages:
   - stage: terraforminstall
